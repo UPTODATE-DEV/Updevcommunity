@@ -1,0 +1,15 @@
+  <div class="flex flex-col items-center justify-center space-y-4" >
+        <img class=" mx-auto" src="@IconLink" alt="@Title"/>
+        <p style="align-self: center;" class="text-gray-600 max-w-md text-center mx-auto">@Details</p>
+    </div>
+@code 
+{
+    [Parameter]
+    public string Title { get; set; } = null!;
+
+    [Parameter]
+    public string Details { get; set; } = null!;
+
+    [Parameter]
+    public string IconLink { get; set; } = null!;
+}

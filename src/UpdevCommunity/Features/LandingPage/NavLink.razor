@@ -1,0 +1,12 @@
+<a href="@Link" class="@Class text-md text-gray-500 font-normal">@Title</a>
+@code
+{
+    [Parameter]
+    public string Title {get;set;} = null!;
+
+    [Parameter]
+    public string Link {get;set;} = null!;
+
+    [Parameter]
+    public string? Class { get; set; }
+}

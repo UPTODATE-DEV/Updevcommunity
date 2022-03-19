@@ -1,0 +1,37 @@
+<div id="features" class="px-4 py-5">
+        <div class="">
+            <div class="flex flex-col items-center  pb-3 space-y-1">
+                <h1 class=" text-xl font-medium">Fonctionalités</h1>
+                <div style="height:2px" class=" w-20  bg-blue-300 rounded-lg"/>
+            </div>
+
+            <div  >
+                <div class=" md:flex md:items-center md:justify-center" >
+                @foreach(var item in _features)
+                {
+                    <FeatureItem  Title=@item.title IconLink=@item.titleIcon />
+                }
+                </div>
+                <div class="py-3 px-4" >
+                @foreach(var item in _features)
+                {
+                    <FeatureDetails  Details=@item.details Title=@item.title IconLink=@item.detailsImg/>
+                }
+                </div>
+            </div>
+
+             <a href="/forum" class="block mx-auto mt-5 self-start font-semibold text-center text-gray-50 bg-blue-500 px-10 py-3 rounded-md shadow">
+          Créer une discussion
+        </a>
+        </div>
+</div>
+@code
+{
+    List<(string title, string titleIcon, string details, string detailsImg)> _features = new()
+        {
+            ( title:"Créer un topic de discussion", titleIcon:"icons/topic.svg", details:"Vous avez une question? Vous voulez avoir une opinion sur l'expérience des autres? Si oui, créer un topic de discussion dans le forum.", detailsImg:"icons/createTopic.svg"),
+            ( title:"Repondre à une discussion", titleIcon:"icons/reply.svg", details:"Partager votre expérience ou opinion en placant votre commentaire sur un topic. Soit repondez aux questions des membre de la communeauté.", detailsImg:"icons/respond.svg"),
+            ( title:"Voter les discussions", titleIcon:"icons/votedone.svg", details:"Ajoutez un vote positif aux discussions ou commentaires qui vous ont le plus marqué.", detailsImg:"icons/upvote.svg"),
+            ("Partager les topics","icons/share.svg","Partager les discussions sur les réseaux sociaux ou sur la toile en général pour que les autres en profite aussi.","icons/shareonline.svg")
+        };
+}

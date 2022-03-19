@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.801" height="29.122" viewBox="0 0 30.801 29.122">
+  <g id="home" transform="translate(0 -2.616)">
+    <g id="Group_58" data-name="Group 58" transform="translate(0 2.616)">
+      <g id="Group_55" data-name="Group 55" transform="translate(3.85 15.005)">
+        <path id="Path_151" data-name="Path 151" d="M29.1,40.117H20.117V31.775H14.984v8.342H6V26.642a.642.642,0,1,1,1.283,0V38.834H13.7V30.492h7.7v8.342h6.417V27.283a.642.642,0,0,1,1.283,0Z" transform="translate(-6 -26)" fill="#7a7265"/>
+      </g>
+      <g id="Group_56" data-name="Group 56">
+        <path id="Path_152" data-name="Path 152" d="M30.159,18.263a.64.64,0,0,1-.443-.178L15.4,4.392,1.085,18.085A.642.642,0,0,1,.2,17.158L15.4,2.616,30.6,17.157a.642.642,0,0,1-.443,1.106Z" transform="translate(0 -2.616)" fill="#7a7265"/>
+      </g>
+      <g id="Group_57" data-name="Group 57" transform="translate(19.892 2.171)">
+        <path id="Path_153" data-name="Path 153" d="M36.133,11.775a.642.642,0,0,1-.642-.642V7.283h-3.85a.642.642,0,1,1,0-1.283h5.133v5.133A.642.642,0,0,1,36.133,11.775Z" transform="translate(-31 -6)" fill="#7a7265"/>
+      </g>
+    </g>
+  </g>
+</svg>

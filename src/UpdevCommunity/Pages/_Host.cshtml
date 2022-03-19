@@ -1,0 +1,20 @@
+﻿@page "/"
+@namespace UpdevCommunity.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />
+<script>
+    function BlazorScrollToId(id) {
+        const element = document.getElementById(id);
+        if (element instanceof HTMLElement) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            });
+        }
+    }
+</script>

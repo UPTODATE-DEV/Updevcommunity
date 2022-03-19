@@ -1,0 +1,52 @@
+  <header class="fixed left-0 right-0 bg-gray-50 z-30">
+    <div class="shadow">
+      <div class="md:container mx-auto  flex justify-between items-center px-2 py-2 md:py-4">
+      <div class="flex justify-center items-center">
+        <h2 class="font-normal text-lg mt-2">UpdevCommunity</h2>
+      </div>
+      <div class="md:hidden">
+        <button @onclick=@(e => OnStateChanged(true))  class="@(IsOpen ? "hidden" : "block") focus:outline-none">
+          <img src="icons/humburger.svg" alt="Open Menu"/>
+        </button>
+        <button @onclick=@(e => OnStateChanged(false))  class="@(!IsOpen ? "hidden" : "block") focus:outline-none">
+          <img src="icons/close.svg" alt="Close Menu"/>
+        </button>
+      </div>
+      <div class="hidden md:block space-x-4" >
+                @foreach(var item in _menus)
+                {
+                     <UpdevCommunity.Features.LandingPage.NavLink Title=@item.title Link=@item.link />
+                }
+      </div>
+
+      <div class="hidden lg:flex space-x-2">
+            <a class="border border-2 border-blue-500  text-blue-500 px-3 py-2 rounded-md hover:bg-blue-500 hover:text-gray-50 hover:cursor-pointer">Se connecter</a>
+            <a class="border border-2 border-blue-500 hover:bg-gray-50 hover:text-blue-500 px-3 py-2 rounded-md bg-blue-500 text-gray-50 hover:cursor-pointer" >Créer un compte</a>
+      </div>
+      </div>
+
+    </div>
+    <SideNav Menus=@_menus IsOpen=@IsOpen />
+    <AnchorNavigation/>
+</header>
+@code 
+{
+    public List<(string title, string link)> _menus = new()
+        {
+            (title: "Acceuil", link: "#home"),
+            (title: "Qui sommes nous?", link: "#about"),
+            (title: "Fonctionalités", link: "#features"),
+            (title: "Contribuer", link: "#contribute"),
+            (title: "Forum", link: "")
+        };
+
+    [Parameter]
+    public bool IsOpen { get; set; } = false;
+    public EventCallback<bool> OnSideNavStateChanged { get; set; }
+
+    void OnStateChanged(bool newState)
+    {
+        IsOpen = newState;
+        OnSideNavStateChanged.InvokeAsync(newState);
+    }
+}

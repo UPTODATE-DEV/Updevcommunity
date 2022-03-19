@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+@using UpdevCommunity.Features.LandingPage
+<PageTitle>Updev Community</PageTitle>
+
+<Navbar IsOpen=@_isOpen/>
+<div @onclick="CloseSideNav">
+    @Body
+    <Footer/>
+</div>
+@code 
+{
+    bool _isOpen = false;
+    void CloseSideNav()
+    {
+        _isOpen = false;
+    }
+}

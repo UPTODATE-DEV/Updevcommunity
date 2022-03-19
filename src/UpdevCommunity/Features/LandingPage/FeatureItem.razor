@@ -1,0 +1,12 @@
+<a class="flex items-center max-w-md px-4 space-x-5 py-3 hover:bg-gray-100 hover:shadow">
+    <img src="@IconLink" alt="@Title" />
+    <h3>@Title</h3>
+</a>
+@code
+{
+    [Parameter]
+    public string Title { get; set; } = null!;
+
+    [Parameter]
+    public string IconLink { get; set; } = null!;
+}

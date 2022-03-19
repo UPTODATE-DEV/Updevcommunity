@@ -1,0 +1,26 @@
+<div id="about" class="bg-gray-100 mt-8 px-4 py-6 md:pb-24">
+       <div class="md:container mx-auto">
+       <div class="flex flex-col items-center  pb-5 space-y-1">
+           <h1 class=" text-xl font-medium">Qu'est ce qu' UpdevCommunity?</h1>
+           <div style="height:2px" class="w-40  bg-blue-300 rounded-lg"/>
+       </div>
+       <p class=" max-w-3xl mx-auto text-gray-600 text-lg text-center py-5">
+                UpdevCommunity est un espace des développeurs ou vous pouvez poser vos questions et trouver des réponses à partir des autres memebres.
+       </p>
+
+       <div class="mt-5 grid md:grid-cols-3 gap-3">
+            @foreach(var about in _abouts)
+            {
+                <AboutCard Title=@about.title Description=@about.description IconLink=@about.iconLink/>
+            }
+       </div>
+       </div>
+</div> 
+@code{
+    List<(string title, string description, string iconLink)> _abouts = new()
+        {
+            ("Espace des développeurs", "Communauté des dévelppeurs, pour le développeurs et par les développeurs.","icons/devspace.svg"),
+            ("Forum de disccussion", description: "Lieu de partage sur différentes thématiques de l'informatiques.", iconLink: "icons/forumdiscussion.svg"),
+            ("Solution", description: "Boite à solution ou vous pouvez trouver des réponses à toutes vos préoccupations informatiques.", iconLink:"icons/solution.svg")
+        };
+}
