@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpdevCommunity.Data;
 
@@ -10,9 +11,10 @@ using UpdevCommunity.Data;
 namespace UpdevCommunity.Data.Migrations
 {
     [DbContext(typeof(UpdevDbContext))]
-    partial class UpdevDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220326104931_AddPost")]
+    partial class AddPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,35 +50,35 @@ namespace UpdevCommunity.Data.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "0fc4c3f8-2b6b-4c4e-bdb6-a508bdafd1b1",
+                            ConcurrencyStamp = "e5ce70e6-d1e7-47f6-92df-1597711cd184",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = "7D9B7113-A8F8-4035-99A7-A20DD400F6A3",
-                            ConcurrencyStamp = "9281d478-a1e1-452d-81f3-cbab29d0c3bc",
+                            ConcurrencyStamp = "f73772d2-0e66-4fd9-8a3d-68bfc7f69097",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "78A7570F-3CE5-48BA-9461-80283ED1D94D",
-                            ConcurrencyStamp = "6805b585-adb8-4b8f-a562-7081f4b64e83",
+                            ConcurrencyStamp = "0bd199d5-3c6f-4e56-a0f0-a2c6d4e8f1b1",
                             Name = "Membre",
                             NormalizedName = "MEMBRE"
                         },
                         new
                         {
                             Id = "01B168FE-810B-432D-9010-233BA0B380E9",
-                            ConcurrencyStamp = "e67d56de-c2c8-4532-9ddc-a6537d6afbf2",
+                            ConcurrencyStamp = "2b167212-d316-4578-93f5-0337fac56bf8",
                             Name = "Moderateur",
                             NormalizedName = "MODERATEUR"
                         },
                         new
                         {
                             Id = "FFE8796D-9AB2-4C5C-9B01-BB58C9F73657",
-                            ConcurrencyStamp = "09324464-8a29-4fb9-ade4-26991a7996a7",
+                            ConcurrencyStamp = "a6acf182-a342-4d5f-81be-e345850d62f6",
                             Name = "Visiteur",
                             NormalizedName = "VISITEUR"
                         });
@@ -248,7 +250,7 @@ namespace UpdevCommunity.Data.Migrations
                     b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReplyParentId")
+                    b.Property<int>("ReplyParentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Tags")
@@ -363,7 +365,7 @@ namespace UpdevCommunity.Data.Migrations
                         {
                             Id = "198E6AEA-6827-4562-B415-242146DE9B9B",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4bff884c-4c26-4b92-9dbf-0e80eb117abe",
+                            ConcurrencyStamp = "7d528a28-9d9c-479c-81aa-12ae02814400",
                             DateOfBirth = new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "superadmin@updevcommunity.com",
                             EmailConfirmed = true,
@@ -372,12 +374,12 @@ namespace UpdevCommunity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@UPDEVCOMMUNITY.COM",
                             NormalizedUserName = "SUPERADMIN@UPDEVCOMMUNITY.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJkU/z8LkcVTsA+ymPfCfKrz4/5WUuBNwKufE8NzMie28Lvk1IP/ObGmpmlLCaUbLQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJFwrI7Mm/RSAuN1TM5lSJmVzukKf3whpbReaRqOzMz5uPIrbhz9sDF7rDTMoKoPmA==",
                             PhoneNumber = "+243847424020",
                             PhoneNumberConfirmed = true,
                             ProfilePic = "",
                             Role = "SuperAdmin",
-                            SecurityStamp = "2f8bb32d-ff51-4aec-b026-9e93a2b0f4a0",
+                            SecurityStamp = "3e96291b-82f5-424a-946e-725d60cf29f3",
                             State = "Active",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@updevcommunity.com"
@@ -520,7 +522,9 @@ namespace UpdevCommunity.Data.Migrations
 
                     b.HasOne("UpdevCommunity.Entities.Reply", "ReplyParent")
                         .WithMany("Replies")
-                        .HasForeignKey("ReplyParentId");
+                        .HasForeignKey("ReplyParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("UpdevCommunity.Entities.UpdevUser", "User")
                         .WithMany()

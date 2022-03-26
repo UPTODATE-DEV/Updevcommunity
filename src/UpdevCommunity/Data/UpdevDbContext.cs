@@ -11,8 +11,16 @@ namespace UpdevCommunity.Data
         {
         }
 
+        public DbSet<Post> Posts { get; set; } = null!;
+        public DbSet<Reply> Replies { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Reply>().OwnsMany(x => x.Votes);
+            builder.Entity<Reply>().OwnsMany(x => x.Images);
+
             builder.ApplyConfigurationsFromAssembly(typeof(Program).Assembly);
         }
     }

@@ -1,0 +1,15 @@
+﻿@using UpdevCommunity.Entities
+<div>
+    <EditForm Model=@_post OnValidSubmit=@OnSubmit>
+        <DataAnnotationsValidator/>
+        <input placeholder="Titre" @bind-value=@_post.Title />
+    </EditForm>
+</div>
+
+@code {
+    Post _post = new Post();
+    Task OnSubmit()
+    {
+        return Task.CompletedTask;
+    }
+}

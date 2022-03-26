@@ -27,9 +27,6 @@ namespace UpdevCommunity.Entities
 
         public string LastName { get; set; } = string.Empty;
 
-        [NotMapped]
-        public string FullName => $"{FullName} {LastName}";
-
         public string ProfilePic { get; set; } = string.Empty;
 
         public string Role { get; set; } = UserRole.Guest;

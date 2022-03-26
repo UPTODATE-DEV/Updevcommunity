@@ -38,6 +38,17 @@ namespace UpdevCommunity.Data.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    FirstName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LastName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ProfilePic = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Role = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    State = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
@@ -193,6 +204,28 @@ namespace UpdevCommunity.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "01B168FE-810B-432D-9010-233BA0B380E9", "3ca1a9aa-3f98-460e-ac33-2870c757e77e", "Moderateur", "MODERATEUR" },
+                    { "2301D884-221A-4E7D-B509-0113DCC043E1", "7210adae-a481-4a69-88c0-dac35d359f43", "SuperAdmin", "SUPERADMIN" },
+                    { "78A7570F-3CE5-48BA-9461-80283ED1D94D", "21522ca5-5a46-417f-bf3b-e08586cd00e9", "Membre", "MEMBRE" },
+                    { "7D9B7113-A8F8-4035-99A7-A20DD400F6A3", "38dc8be8-30ef-4fa7-ac5b-4699b7a3edeb", "Admin", "ADMIN" },
+                    { "FFE8796D-9AB2-4C5C-9B01-BB58C9F73657", "3d5a708a-526a-4623-9dc7-90dc12be03b0", "Visiteur", "VISITEUR" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePic", "Role", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "198E6AEA-6827-4562-B415-242146DE9B9B", 0, "4e4890e6-8c7e-4dc6-880a-1051abbb7d1c", new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "superadmin@updevcommunity.com", true, "Master", "Admin", false, null, "SUPERADMIN@UPDEVCOMMUNITY.COM", "SUPERADMIN@UPDEVCOMMUNITY.COM", "AQAAAAEAACcQAAAAEPolsxNShJjOMwJsEXYSKX+yWsQtdissyiGhxC1k3zkzw/BOW1HNz4mG0LcX7oBLmw==", "+243847424020", true, "", "SuperAdmin", "9b552b96-a67c-4f68-86ef-6e3de9903b36", "Active", false, "superadmin@updevcommunity.com" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "2301D884-221A-4E7D-B509-0113DCC043E1", "198E6AEA-6827-4562-B415-242146DE9B9B" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpdevCommunity.Data;
 
@@ -10,9 +11,10 @@ using UpdevCommunity.Data;
 namespace UpdevCommunity.Data.Migrations
 {
     [DbContext(typeof(UpdevDbContext))]
-    partial class UpdevDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220326143629_UpdateReply")]
+    partial class UpdateReply
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
